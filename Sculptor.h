@@ -25,5 +25,5 @@ public:
     void writeOFF(const char* filename);
 };
 
-
+ 
 #endif
