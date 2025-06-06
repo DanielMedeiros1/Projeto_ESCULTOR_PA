@@ -111,6 +111,42 @@ void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
     }
 }
 
+void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
+
+    for (int i = 0; i < nx; i++){
+        for (int j = 0; j < ny; j++){
+            for (int k = 0; k < nz; k++){
+                
+                float dx = (float)(i - xcenter) / rx;
+                float dy = (float)(j - ycenter) / ry;
+                float dz = (float)(k - zcenter) / rz;
+                
+                if(dx * dx + dy * dy + dz * dz <= 1.0)
+                    putVoxel(i,j,k);
+            }
+        }
+    }
+}
+
+void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
+
+    for (int i = 0; i < nx; i++){
+        for (int j = 0; j < ny; j++){
+            for (int k = 0; k < nz; k++){
+                
+                float dx = (float)(i - xcenter) / rx;
+                float dy = (float)(j - ycenter) / ry;
+                float dz = (float)(k - zcenter) / rz;
+                
+                if(dx * dx + dy * dy + dz * dz <= 1.0){
+                    cutVoxel(i,j,k);
+                }
+            }    
+        }
+    }
+}
+
+
 void Sculptor::writeOFF(const char *filename){
 
     std::ofstream outfile(filename);
