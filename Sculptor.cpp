@@ -5,11 +5,11 @@
 
 
 
-Sculptor::Sculptor(int nx_, int ny_, int nz_){
+Sculptor::Sculptor(int _nx, int _ny, int _nz){
 
-    nx = nx_; 
-    ny = ny_; 
-    nz = nz_;
+    nx = _nx; 
+    ny = _ny; 
+    nz = _nz;
     v = new Voxel **[nx];
 
     for(int i = 0; i < nx; i++){
